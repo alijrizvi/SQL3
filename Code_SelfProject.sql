@@ -6,29 +6,29 @@ FROM dbo.EconomicInequality$
 SELECT *
 FROM dbo.gdppercapita
 
--- Arranging Countries by Highest Income Shares of the Richest 10% of the Population
+-- Arranging Countries by Highest Average Income Shares of the Richest 10% of the Population
 
-SELECT Country, MAX([Income_Share_of_the_Richest_TenPercent_Pre-Tax]) AS Income_Share_RichestTenPercent
+SELECT Country, AVG([Income_Share_of_the_Richest_TenPercent_Pre-Tax]) AS AllTime_Income_Share_RichestTenPercent
 FROM dbo.EconomicInequality$
 WHERE [Income_Share_of_the_Richest_TenPercent_Pre-Tax] != 'NULL'
-GROUP BY Country
-ORDER BY Country
+GROUP BY Country, [Income_Share_of_the_Richest_TenPercent_Pre-Tax]
+ORDER BY [Income_Share_of_the_Richest_TenPercent_Pre-Tax] DESC
 
--- Arranging Countries by Highest Income Shares of the Richest 1% of the Population
+-- Arranging Countries by Highest Average Income Shares of the Richest 1% of the Population
 
-SELECT Country, MAX([Income_Share_of_the_Richest_OnePercent_Pre-Tax]) AS Income_Share_RichestOnePercent
+SELECT Country, AVG([Income_Share_of_the_Richest_OnePercent_Pre-Tax]) AS AllTime_Income_Share_RichestOnePercent
 FROM dbo.EconomicInequality$
 WHERE [Income_Share_of_the_Richest_OnePercent_Pre-Tax] != 'NULL'
-GROUP BY Country
-ORDER BY Country
+GROUP BY Country, [Income_Share_of_the_Richest_OnePercent_Pre-Tax]
+ORDER BY [Income_Share_of_the_Richest_OnePercent_Pre-Tax] DESC
 
--- Arranging Countries by Highest Income Shares of the Richest 0.1% of the Population
+-- Arranging Countries by Highest Average Income Shares of the Richest 0.1% of the Population
 
-SELECT Country, MAX([Income_Share_of_the_Richest_ZeroPointOnePercent_Pre-Tax]) AS Income_Share_RichestZeroPointOnePercent
+SELECT Country, AVG([Income_Share_of_the_Richest_ZeroPointOnePercent_Pre-Tax]) AS AllTime_Income_Share_RichestZeroPointOnePercent
 FROM dbo.EconomicInequality$
 WHERE [Income_Share_of_the_Richest_ZeroPointOnePercent_Pre-Tax] != 'NULL'
-GROUP BY Country
-ORDER BY Country
+GROUP BY Country, [Income_Share_of_the_Richest_ZeroPointOnePercent_Pre-Tax]
+ORDER BY [Income_Share_of_the_Richest_ZeroPointOnePercent_Pre-Tax] DESC
 
 -- Arranging Countries by Worst Distribution of Wealth to Latter 50% of the Population
 
