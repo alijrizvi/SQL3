@@ -1,3 +1,7 @@
+/***********************************************
+** Portfolio Project #3 for Data Analytics: Analyzing the Economic Trends of the World
+***********************************************/
+
 - Pulling Up Both Tables for the Project
 
 SELECT *
